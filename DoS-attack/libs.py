@@ -34,13 +34,6 @@ def convert_hex_decimal(_set_before_convert):
         _set_after_convert[i] = firstlist 
     return _set_after_convert
 
-# model DNN
-def model_DNN():
-
-
-
-
-    return 1
 
 
 

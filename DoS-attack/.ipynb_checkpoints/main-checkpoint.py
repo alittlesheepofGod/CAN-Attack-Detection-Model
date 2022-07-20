@@ -1,6 +1,5 @@
 import libs
 import pandas as pd
-import model_lib
 
 # variable 
 PATH_TO_DATASET = '/mnt/d/project/dataset/CAN/Car-Hacking/DoS_dataset.csv'

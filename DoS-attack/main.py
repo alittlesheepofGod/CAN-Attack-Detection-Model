@@ -14,20 +14,26 @@ X_train, X_test, y_train, y_test = libs.traintest_split(data, label)
 X_train_decimal = libs.convert_hex_decimal(X_train)
 X_test_decimal = libs.convert_hex_decimal(X_test)
 
+# reset index for X_train_decimal, X_test_decimal 
+X_train_decimal = X_train_decimal.reset_index(drop=True)
+X_test_decimal = X_test_decimal.reset_index(drop=True)
+
+# reset index for y_train, y_test
+y_train = y_train.reset_index(drop=True)
+y_test = y_test.reset_index(drop=True)
+
+# concatenate X_train_decimal and y_train 
+X_train_stack = pd.concat([X_train_decimal, y_train], axis=1)
+
+# concatenate X_test_decimal and y_test
+X_test_stack = pd.concat([X_test_decimal, y_test], axis=1)
+
 # output X_train, X_test, y_train, y_test to csv file 
 filepath_train = Path('./out/train.csv')
 filepath_train.parent.mkdir(parents=True, exist_ok=True)
-X_train.to_csv(filepath_train)
+X_train_stack.to_csv(filepath_train)
 
 filepath_test = Path('./out/test.csv')
 filepath_test.parent.mkdir(parents=True, exist_ok=True)
-X_test.to_csv(filepath_test)
-
-filepath_train_label = Path('./out/train_label.csv')
-filepath_train_label.parent.mkdir(parents=True, exist_ok=True)
-X_train.to_csv(filepath_train_label)
-
-filepath_test_label = Path('./out/test_label.csv')
-filepath_test_label.parent.mkdir(parents=True, exist_ok=True)
-X_test.to_csv(filepath_test_label)
+X_test_stack.to_csv(filepath_test)
 

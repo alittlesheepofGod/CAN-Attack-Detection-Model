@@ -4,7 +4,8 @@ import model_lib
 from pathlib import Path
 
 # variable 
-PATH_TO_DATASET = '/mnt/d/project/dataset/CAN/Car-Hacking/DoS_dataset.csv'
+# PATH_TO_DATASET = '/mnt/d/project/dataset/CAN/Car-Hacking/DoS_dataset.csv'
+PATH_TO_DATASET = '~/dataset/DoS_dataset.csv'
 
 # main functions
 data, label = libs.read_dataset(PATH_TO_DATASET)
